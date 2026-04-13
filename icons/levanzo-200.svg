@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="shape"><rect x="0" y="0" width="200" height="200" rx="40"/></clipPath>
+    <filter id="carve" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-color="#A09880" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g clip-path="url(#shape)">
+    <rect width="200" height="200" rx="40" fill="#F4F0E8"/>
+    <circle cx="45" cy="30" r="1.3" fill="#C8C3BB" opacity="0.5"/>
+    <circle cx="155" cy="20" r="1.1" fill="#BDB8B0" opacity="0.45"/>
+    <circle cx="22" cy="110" r="1.2" fill="#D0CBC3" opacity="0.45"/>
+    <circle cx="178" cy="95" r="1" fill="#C5C0B8" opacity="0.4"/>
+    <circle cx="90" cy="170" r="1.3" fill="#C0BBB3" opacity="0.45"/>
+    <circle cx="170" cy="160" r="1.1" fill="#BDB8B0" opacity="0.4"/>
+    <circle cx="110" cy="50" r="1" fill="#D2CEC6" opacity="0.45"/>
+    <circle cx="60" cy="140" r="1.2" fill="#C8C3BB" opacity="0.4"/>
+    <polygon points="80,28 128,20 135,50 86,60" fill="#C86850"/>
+    <polygon points="10,92 50,84 57,114 15,123" fill="#444C56"/>
+    <polygon points="118,125 164,117 170,148 123,156" fill="#B88020"/>
+    <polygon points="30,148 72,140 78,168 34,176" fill="#CC7055"/>
+    <polygon points="148,16 180,9 185,32 152,40" fill="#4E7068"/>
+    <polygon points="14,56 44,49 48,68 18,75" fill="#C28830"/>
+    <polygon points="158,68 192,60 196,82 162,90" fill="#D4785A"/>
+    <polygon points="78,100 108,93 113,114 82,121" fill="#567A72"/>
+    <polygon points="94,158 126,151 131,172 98,179" fill="#3E4650"/>
+    <polygon points="54,12 68,8 71,22 57,26" fill="#E8A898"/>
+    <polygon points="162,42 176,37 179,52 165,57" fill="#CC7055"/>
+    <polygon points="8,138 20,134 22,148 10,152" fill="#B88020"/>
+    <polygon points="148,148 162,143 165,158 151,163" fill="#4E7068"/>
+    <polygon points="42,80 54,76 57,88 44,93" fill="#D4785A"/>
+    <polygon points="106,8 114,5 115,14 107,16" fill="#4A5058"/>
+    <polygon points="188,118 196,114 197,124 189,127" fill="#C28830"/>
+    <polygon points="8,172 15,169 16,177 9,180" fill="#567A72"/>
+    <text x="100" y="138" text-anchor="middle"
+      font-family="Georgia, serif" font-size="110" font-weight="700"
+      fill="#C8C2B4" filter="url(#carve)">L</text>
+  </g>
+</svg>

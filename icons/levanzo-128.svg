@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <clipPath id="shape"><rect x="0" y="0" width="128" height="128" rx="26"/></clipPath>
+    <filter id="carve-sm" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0.5" dy="1.5" stdDeviation="1.5" flood-color="#A09880" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g clip-path="url(#shape)">
+    <rect width="128" height="128" rx="26" fill="#F4F0E8"/>
+    <circle cx="28" cy="18" r="1" fill="#C8C3BB" opacity="0.5"/>
+    <circle cx="100" cy="60" r="1.1" fill="#BDB8B0" opacity="0.45"/>
+    <circle cx="55" cy="105" r="1" fill="#D0CBC3" opacity="0.45"/>
+    <polygon points="50,17 80,11 86,32 55,39" fill="#C86850"/>
+    <polygon points="6,58 34,52 39,72 10,79" fill="#444C56"/>
+    <polygon points="76,80 108,73 113,96 80,103" fill="#B88020"/>
+    <polygon points="20,94 52,87 56,108 24,115" fill="#CC7055"/>
+    <polygon points="94,10 118,4 122,22 97,28" fill="#4E7068"/>
+    <polygon points="8,34 30,28 33,44 11,50" fill="#C28830"/>
+    <polygon points="98,44 122,38 125,56 101,62" fill="#D4785A"/>
+    <polygon points="48,64 72,58 76,76 51,82" fill="#567A72"/>
+    <polygon points="34,8 46,4 48,15 36,19" fill="#E8A898"/>
+    <polygon points="8,104 18,101 20,112 10,116" fill="#B88020"/>
+    <polygon points="98,112 110,108 112,120 100,124" fill="#3E4650"/>
+    <polygon points="66,4 73,1 74,10 67,12" fill="#4A5058"/>
+    <text x="64" y="90" text-anchor="middle"
+      font-family="Georgia, serif" font-size="72" font-weight="700"
+      fill="#C8C2B4" filter="url(#carve-sm)">L</text>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="shape"><rect x="0" y="0" width="64" height="64" rx="13"/></clipPath>
+  </defs>
+  <g clip-path="url(#shape)">
+    <rect width="64" height="64" rx="13" fill="#F4F0E8"/>
+    <circle cx="32" cy="28" r="0.8" fill="#C8C3BB" opacity="0.5"/>
+    <circle cx="50" cy="50" r="0.7" fill="#BDB8B0" opacity="0.45"/>
+    <polygon points="25,8 40,5 43,16 28,19" fill="#C86850"/>
+    <polygon points="3,30 16,27 19,38 5,41" fill="#444C56"/>
+    <polygon points="38,38 54,35 57,47 40,50" fill="#B88020"/>
+    <polygon points="14,46 30,43 33,55 16,58" fill="#CC7055"/>
+    <polygon points="48,6 60,3 62,12 50,15" fill="#4E7068"/>
+    <polygon points="5,18 15,15 17,24 7,27" fill="#C28830"/>
+    <polygon points="40,20 52,17 54,27 42,31" fill="#D4785A"/>
+    <polygon points="22,26 33,23 35,32 24,35" fill="#567A72"/>
+    <polygon points="16,8 22,6 23,12 17,14" fill="#E8A898"/>
+    <polygon points="50,54 58,52 59,60 51,62" fill="#3E4650"/>
+    <polygon points="6,54 12,52 13,60 7,62" fill="#B88020"/>
+  </g>
+</svg>
