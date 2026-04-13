@@ -26,19 +26,21 @@
 @tailwind utilities;
 
 :root {
-  --cream: #D8D2C8;
-  --cream-dark: #C8C2B6;
-  --parchment: #C0BAB0;
-  --ink: #1E1410;
-  --ink-soft: #2E2018;
-  --ink-muted: #7A6858;
+  --cream: #EAE4D8;
+  --cream-dark: #DDD6C8;
+  --parchment: #D0C9B8;
+  --ink: #2C2418;
+  --ink-soft: #46382A;
+  --ink-muted: #8E7E68;
   --nav-bg: #2C2418;
-  --terracotta: #A85C38;
-  --terracotta-light: #BE7A54;
-  --sage: #5E7858;
-  --sage-light: #7A9674;
-  --gold: #9E7228;
-  --gold-light: #BC9040;
+  --terracotta: #B86240;
+  --terracotta-light: #CC8060;
+  --sage: #688060;
+  --sage-light: #88A080;
+  --gold: #A87830;
+  --gold-light: #C89848;
+  --teal: #3A7A80;
+  --purple: #7A6E9A;
   --border: rgba(44,36,24,0.12);
   --border-strong: rgba(44,36,24,0.22);
   /* Component tokens */
@@ -3466,6 +3468,9 @@ body.theme-inspecting *:hover {
 }
 .popover-header { padding: 8px 12px; border-bottom: 1px solid var(--border); font-family: var(--font-mono, monospace); font-size: 0.58rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); }
 .popover-body   { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+
+.popover-key { font-size: 0.72rem; color: var(--ink-soft); }
+.popover-val { font-family: var(--font-mono, monospace); font-size: 0.6rem; color: var(--ink-muted); }
 .popover-footer { padding: 6px 12px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; }
 .popover-action { font-family: var(--font-mono, monospace); font-size: 0.52rem; color: var(--terracotta); background: none; border: none; cursor: pointer; letter-spacing: 0.03em; }
 
@@ -3870,6 +3875,10 @@ body.theme-inspecting *:hover {
    ctx-menu, stepper, radio, banner, timeline, kbd, toggle,
    search, action-row, dropdown, skel, prog, filter-pills)
    ══════════════════════════════════════════════════════════════ */
+
+/* Component demo row — flex wrap with gap */
+.comp-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+
 
 /* ── Recipe Card v2 ────────────── */
 .rc {
@@ -4320,13 +4329,13 @@ body.theme-inspecting *:hover {
 }
 
 /* ── Form Inputs ─────────────────────────────────────── */
-.field {
+.comp-field {
   display: flex;
   flex-direction: column;
   gap: 5px;
   width: 240px;
 }
-.field-label {
+.comp-field-label {
   font-family: var(--mono);
   font-size: 0.55rem;
   font-weight: 500;
@@ -4334,7 +4343,7 @@ body.theme-inspecting *:hover {
   text-transform: uppercase;
   color: var(--ink-muted);
 }
-.field-input {
+.comp-field-input {
   display: flex;
   border: 2px solid var(--border-strong);
   border-radius: 4px;
@@ -4343,10 +4352,10 @@ body.theme-inspecting *:hover {
   align-items: stretch;
   transition: border-color 0.1s;
 }
-.field-input:focus-within { border-color: var(--ink-soft); }
-.field-input.error { border-color: var(--terracotta); }
-.field-input.success { border-color: var(--sage); }
-.field-prefix {
+.comp-field-input:focus-within { border-color: var(--ink-soft); }
+.comp-field-input.error { border-color: var(--terracotta); }
+.comp-field-input.success { border-color: var(--sage); }
+.comp-field-prefix {
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -4357,7 +4366,7 @@ body.theme-inspecting *:hover {
   background: var(--cream-dark);
   flex-shrink: 0;
 }
-.field-suffix {
+.comp-field-suffix {
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -4368,7 +4377,7 @@ body.theme-inspecting *:hover {
   background: var(--cream-dark);
   flex-shrink: 0;
 }
-.field-input input, .field-input textarea, .field-input select {
+.comp-field-input input, .comp-field-input textarea, .comp-field-input select {
   flex: 1;
   padding: 8px 10px;
   font-family: var(--sans);
@@ -4380,13 +4389,13 @@ body.theme-inspecting *:hover {
   color: var(--ink);
   min-width: 0;
 }
-.field-input textarea { resize: vertical; min-height: 72px; }
-.field-input select { cursor: pointer; }
-.field-input input::placeholder,
-.field-input textarea::placeholder { color: var(--ink-muted); }
-.field-hint { font-size: 0.6rem; color: var(--ink-muted); line-height: 1.4; }
-.field-error { font-family: var(--mono); font-size: 0.58rem; color: var(--terracotta); }
-.field-success { font-family: var(--mono); font-size: 0.58rem; color: var(--sage); }
+.comp-field-input textarea { resize: vertical; min-height: 72px; }
+.comp-field-input select { cursor: pointer; }
+.comp-field-input input::placeholder,
+.comp-field-input textarea::placeholder { color: var(--ink-muted); }
+.comp-field-hint { font-size: 0.6rem; color: var(--ink-muted); line-height: 1.4; }
+.comp-field-error { font-family: var(--mono); font-size: 0.58rem; color: var(--terracotta); }
+.comp-field-success { font-family: var(--mono); font-size: 0.58rem; color: var(--sage); }
 
 /* ── Toggle / Switch ─────────────────────────────────── */
 .toggle-row {

@@ -347,7 +347,7 @@ export default function StorybookPage() {
             {/* ── Recipe cards ── */}
             {visibleIds.has('recipe-cards') && (
               <Section id="recipe-cards" label="Recipe Cards — v2 Spine Style">
-                <div className="row">
+                <div className="comp-row">
                   {[
                     { id: 'RCP-01', title: 'Tomato Egg', desc: "It's tomato, it's egg.", time: '10m', pantry: '4/5', color: '#C2623A', last: '8 days ago' },
                     { id: 'RCP-09', title: 'Corn Chowder', desc: 'Like clam chowder but for poor people.', time: '90m', pantry: '5/5', color: '#6B8C6B', last: 'today' },
@@ -381,7 +381,7 @@ export default function StorybookPage() {
             {/* ── Stat cards ── */}
             {visibleIds.has('stat-cards') && (
               <Section id="stat-cards" label="Stat Cards">
-                <div className="row">
+                <div className="comp-row">
                   <StatCard label="Meals this week" value="14" trend="2 vs last week" trendDirection="up" color="terracotta" />
                   <StatCard label="Monthly spend"   value="$248" trend="$12 vs avg"   trendDirection="down" color="gold" />
                   <StatCard label="Pantry items"    value="127" trend="unchanged"      trendDirection="flat" color="sage" />
@@ -446,43 +446,43 @@ export default function StorybookPage() {
             {/* ── Form inputs ── */}
             {visibleIds.has('form-inputs') && (
               <Section id="form-inputs" label="Form Inputs">
-                <div className="row" style={{ alignItems: 'flex-start' }}>
-                  <div className="field">
-                    <div className="field-label">Recipe name</div>
-                    <div className="field-input"><input type="text" placeholder="e.g. Corn Chowder" /></div>
+                <div className="comp-row" style={{ alignItems: 'flex-start' }}>
+                  <div className="comp-field">
+                    <div className="comp-field-label">Recipe name</div>
+                    <div className="comp-field-input"><input type="text" placeholder="e.g. Corn Chowder" /></div>
                   </div>
-                  <div className="field">
-                    <div className="field-label">Cook time</div>
-                    <div className="field-input"><input type="text" defaultValue="45" style={{ textAlign: 'right' }} /><div className="field-suffix">min</div></div>
-                    <div className="field-hint">Total active + passive cook time.</div>
+                  <div className="comp-field">
+                    <div className="comp-field-label">Cook time</div>
+                    <div className="comp-field-input"><input type="text" defaultValue="45" style={{ textAlign: 'right' }} /><div className="comp-field-suffix">min</div></div>
+                    <div className="comp-field-hint">Total active + passive cook time.</div>
                   </div>
-                  <div className="field">
-                    <div className="field-label">Unit price</div>
-                    <div className="field-input"><div className="field-prefix">$</div><input type="text" placeholder="0.00" /></div>
+                  <div className="comp-field">
+                    <div className="comp-field-label">Unit price</div>
+                    <div className="comp-field-input"><div className="comp-field-prefix">$</div><input type="text" placeholder="0.00" /></div>
                   </div>
-                  <div className="field">
-                    <div className="field-label">Store slug</div>
-                    <div className="field-input error"><input type="text" defaultValue="king sooper$" /></div>
-                    <div className="field-error">✕ invalid characters in name</div>
+                  <div className="comp-field">
+                    <div className="comp-field-label">Store slug</div>
+                    <div className="comp-field-input error"><input type="text" defaultValue="king sooper$" /></div>
+                    <div className="comp-field-error">✕ invalid characters in name</div>
                   </div>
-                  <div className="field">
-                    <div className="field-label">Location</div>
-                    <div className="field-input success"><input type="text" defaultValue="pantry · shelf 2" /></div>
-                    <div className="field-success">✓ location confirmed</div>
+                  <div className="comp-field">
+                    <div className="comp-field-label">Location</div>
+                    <div className="comp-field-input success"><input type="text" defaultValue="pantry · shelf 2" /></div>
+                    <div className="comp-field-success">✓ location confirmed</div>
                   </div>
-                  <div className="field" style={{ width: 200 }}>
-                    <div className="field-label">Meal type</div>
-                    <div className="field-input">
+                  <div className="comp-field" style={{ width: 200 }}>
+                    <div className="comp-field-label">Meal type</div>
+                    <div className="comp-field-input">
                       <select><option>Breakfast</option><option>Lunch</option><option>Dinner</option></select>
                     </div>
                   </div>
-                  <div className="field" style={{ width: 280 }}>
-                    <div className="field-label">Notes</div>
-                    <div className="field-input"><textarea placeholder="Optional notes…" /></div>
+                  <div className="comp-field" style={{ width: 280 }}>
+                    <div className="comp-field-label">Notes</div>
+                    <div className="comp-field-input"><textarea placeholder="Optional notes…" /></div>
                   </div>
-                  <div className="field">
-                    <div className="field-label">Inline edit</div>
-                    <div className="field-input" style={{ padding: '0 10px' }}>
+                  <div className="comp-field">
+                    <div className="comp-field-label">Inline edit</div>
+                    <div className="comp-field-input" style={{ padding: '0 10px' }}>
                       <InlineEdit value={inlineVal} onSave={setInlineVal} style={{ fontWeight: 500 }} />
                     </div>
                   </div>
@@ -493,7 +493,7 @@ export default function StorybookPage() {
             {/* ── Checkbox ── */}
             {visibleIds.has('checkbox') && (
               <Section id="checkbox" label="Checkbox">
-                <div className="row" style={{ alignItems: 'flex-start' }}>
+                <div className="comp-row" style={{ alignItems: 'flex-start' }}>
                   <CheckboxGroup
                     items={[
                       { id: 'auto-shopping', label: 'Auto-add to shopping list', sublabel: 'when pantry drops below threshold' },
@@ -554,7 +554,7 @@ export default function StorybookPage() {
             {/* ── Dropdown ── */}
             {visibleIds.has('dropdown') && (
               <Section id="dropdown" label="Dropdown / Select Menu">
-                <div className="row">
+                <div className="comp-row">
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                     <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.52rem', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>closed</div>
                     <div className="dropdown-wrap">
@@ -623,7 +623,7 @@ export default function StorybookPage() {
             {/* ── Stepper ── */}
             {visibleIds.has('stepper') && (
               <Section id="stepper" label="Stepper / Quantity Input">
-                <div className="row" style={{ alignItems: 'center' }}>
+                <div className="comp-row" style={{ alignItems: 'center' }}>
                   {[{ label: 'servings', val: 4 }, { label: 'stock qty (oz)', val: 12 }].map(s => (
                     <div key={s.label} style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                       <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.52rem', color: 'var(--ink-muted)' }}>{s.label}</div>
@@ -864,7 +864,7 @@ export default function StorybookPage() {
             {/* ── Empty states ── */}
             {visibleIds.has('empty-states') && (
               <Section id="empty-states" label="Empty States">
-                <div className="row">
+                <div className="comp-row">
                   {[
                     { icon: '□', title: 'No recipes yet',   sub: 'Add your first recipe to start building your library.', btn: '+ add recipe' },
                     { icon: '□', title: 'List is empty',    sub: 'Items will appear here when pantry stock runs low.',     btn: '+ add item'   },
@@ -883,7 +883,7 @@ export default function StorybookPage() {
             {/* ── Modal ── */}
             {visibleIds.has('modal') && (
               <Section id="modal" label="Modal / Dialog">
-                <div className="row" style={{ alignItems: 'flex-start' }}>
+                <div className="comp-row" style={{ alignItems: 'flex-start' }}>
                   <div className="modal-demo">
                     <div className="modal-header">
                       <div className="modal-header-spine" style={{ background: 'var(--terracotta)' }} />
@@ -893,8 +893,8 @@ export default function StorybookPage() {
                       </div>
                     </div>
                     <div className="modal-body">
-                      <div className="field"><div className="field-label">Name</div><div className="field-input"><input type="text" placeholder="Recipe name…" /></div></div>
-                      <div className="field"><div className="field-label">Cook time</div><div className="field-input"><input type="text" placeholder="30" style={{ textAlign: 'right' }} /><div className="field-suffix">min</div></div></div>
+                      <div className="comp-field"><div className="comp-field-label">Name</div><div className="comp-field-input"><input type="text" placeholder="Recipe name…" /></div></div>
+                      <div className="comp-field"><div className="comp-field-label">Cook time</div><div className="comp-field-input"><input type="text" placeholder="30" style={{ textAlign: 'right' }} /><div className="comp-field-suffix">min</div></div></div>
                     </div>
                     <div className="modal-footer">
                       <button className="modal-btn">cancel</button>
@@ -1012,7 +1012,7 @@ export default function StorybookPage() {
             {/* ── Badges ── */}
             {visibleIds.has('badges') && (
               <Section id="badges" label="Badges & Tags">
-                <div className="row" style={{ alignItems: 'center' }}>
+                <div className="comp-row" style={{ alignItems: 'center' }}>
                   <span className="badge badge-terra">Asian</span>
                   <span className="badge badge-sage">Basic</span>
                   <span className="badge badge-gold">RCP-04</span>
@@ -1030,7 +1030,7 @@ export default function StorybookPage() {
             {/* ── Avatar ── */}
             {visibleIds.has('avatar') && (
               <Section id="avatar" label="Avatar / User Chip">
-                <div className="row" style={{ alignItems: 'center' }}>
+                <div className="comp-row" style={{ alignItems: 'center' }}>
                   <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
                     <Avatar initials="JX" size="sm" />
                     <Avatar initials="JX" size="md" />
