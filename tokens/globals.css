@@ -26,19 +26,19 @@
 @tailwind utilities;
 
 :root {
-  --cream: #EAE4D8;
-  --cream-dark: #DDD6C8;
-  --parchment: #D0C9B8;
-  --ink: #2C2418;
-  --ink-soft: #46382A;
-  --ink-muted: #8E7E68;
+  --cream: #D8D2C8;
+  --cream-dark: #C8C2B6;
+  --parchment: #C0BAB0;
+  --ink: #1E1410;
+  --ink-soft: #2E2018;
+  --ink-muted: #7A6858;
   --nav-bg: #2C2418;
-  --terracotta: #B86240;
-  --terracotta-light: #CC8060;
-  --sage: #688060;
-  --sage-light: #88A080;
-  --gold: #A87830;
-  --gold-light: #C89848;
+  --terracotta: #A85C38;
+  --terracotta-light: #BE7A54;
+  --sage: #5E7858;
+  --sage-light: #7A9674;
+  --gold: #9E7228;
+  --gold-light: #BC9040;
   --border: rgba(44,36,24,0.12);
   --border-strong: rgba(44,36,24,0.22);
   /* Component tokens */

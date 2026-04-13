@@ -2,3 +2,6 @@ node_modules/
 .next/
 .env.local
 .DS_Store
+
+# Theme build artifacts — source JSON is committed, not the packaged binaries
+*.vsix
