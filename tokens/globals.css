@@ -44,8 +44,8 @@
   --border: rgba(44,36,24,0.12);
   --border-strong: rgba(44,36,24,0.22);
   /* Active state tokens — used by pill, tab, pagination, buttons */
-  --active-bg:   #2C2418;
-  --active-text: #EAE4D8;
+  --active-bg:   var(--terracotta);
+  --active-text: #F4EFE6;
   /* Font aliases — --mono and --serif used throughout component CSS */
   --mono: 'JetBrains Mono', 'Courier New', monospace;
   --serif: 'Cormorant Garamond', serif;
