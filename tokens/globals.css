@@ -4690,8 +4690,9 @@ body.theme-inspecting *:hover {
 .dt-cell.bold { font-weight: 500; color: var(--ink); }
 
 /* ── Skeleton Loader ─────────────────────────────────── */
-
-  100% { background-position: 400px 0; }
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
 }
 .skel {
   background: linear-gradient(90deg, var(--border-strong) 25%, var(--parchment) 50%, var(--border-strong) 75%);
