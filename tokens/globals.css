@@ -43,6 +43,10 @@
   --purple: #7A6E9A;
   --border: rgba(44,36,24,0.12);
   --border-strong: rgba(44,36,24,0.22);
+  /* Font aliases — --mono and --serif used throughout component CSS */
+  --mono: 'JetBrains Mono', 'Courier New', monospace;
+  --serif: 'Cormorant Garamond', serif;
+  --sans: 'DM Sans', sans-serif;
   /* Component tokens */
   --pill-active-bg:    var(--nav-bg);
   --pill-active-text:  var(--cream);
