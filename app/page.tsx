@@ -255,9 +255,10 @@ export default function StorybookPage() {
 
         {/* ── Top bar ── */}
         <header className="sb-topbar">
-          <span className="sb-brand">
+          <div className="sb-brand">
+            <img src="/icon.svg" alt="Levanzo" className="sb-brand-icon" />
             levanzo<span className="sb-brand-dot">.ui</span>
-          </span>
+          </div>
 
           <div className="sb-search">
             <Search size={12} style={{ color: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />

@@ -3662,6 +3662,9 @@ body.theme-inspecting *:hover {
   z-index: 100;
 }
 .sb-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1.05rem;
@@ -3669,6 +3672,13 @@ body.theme-inspecting *:hover {
   letter-spacing: 0.01em;
   white-space: nowrap;
   flex-shrink: 0;
+}
+.sb-brand-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  display: block;
 }
 .sb-brand-dot { color: var(--terracotta-light); }
 
