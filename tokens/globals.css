@@ -43,6 +43,9 @@
   --purple: #7A6E9A;
   --border: rgba(44,36,24,0.12);
   --border-strong: rgba(44,36,24,0.22);
+  /* Active state tokens — used by pill, tab, pagination, buttons */
+  --active-bg:   #2C2418;
+  --active-text: #EAE4D8;
   /* Font aliases — --mono and --serif used throughout component CSS */
   --mono: 'JetBrains Mono', 'Courier New', monospace;
   --serif: 'Cormorant Garamond', serif;
@@ -1038,7 +1041,7 @@ textarea.input {
 .filter-tab:active, .pill:active { transform: scale(0.95); transition: transform 0.07s; }
 
 .filter-tab:hover, .pill:hover { background: var(--cream-dark); color: var(--ink); border-color: var(--ink-muted); }
-.filter-tab.active, .pill.active { background: var(--pill-active-bg); color: var(--pill-active-text); border-color: var(--pill-active-bg); }
+.filter-tab.active, .pill.active { background: var(--active-bg); color: var(--active-text); border-color: var(--active-bg); }
 
 /* Week nav */
 .week-nav {
@@ -3397,7 +3400,7 @@ body.theme-inspecting *:hover {
 }
 .page-btn:last-child { border-right: none; }
 .page-btn:hover:not(.active):not(:disabled) { background: var(--cream-dark); color: var(--ink); }
-.page-btn.active { background: var(--nav-bg); color: var(--cream); }
+.page-btn.active { background: var(--active-bg); color: var(--active-text); }
 .page-btn:disabled { opacity: 0.35; cursor: default; }
 .page-btn-prev, .page-btn-next { font-size: 0.75rem; }
 .page-btn-ellipsis { cursor: default; }
@@ -3637,26 +3640,35 @@ body.theme-inspecting *:hover {
 
 
 /* ── Notte mode: active states use terracotta instead of near-black nav-bg ── */
+html.notte {
+  --active-bg:   var(--terracotta);
+  --active-text: #F4EFE6;
+}
 html.notte .pill.active {
-  background: var(--terracotta);
-  border-color: var(--terracotta);
-  color: #F4EFE6;
+  background: var(--active-bg);
+  border-color: var(--active-bg);
+  color: var(--active-text);
 }
 html.notte .tab.active {
-  background: var(--terracotta);
-  color: #F4EFE6;
+  background: var(--active-bg);
+  color: var(--active-text);
 }
 html.notte .page-btn.active {
-  background: var(--terracotta);
-  color: #F4EFE6;
+  background: var(--active-bg);
+  color: var(--active-text);
 }
 html.notte .breadcrumb-item-current {
   color: var(--terracotta-light);
 }
 html.notte .banner-btn.confirm {
-  background: var(--terracotta);
-  color: #F4EFE6;
-  border-color: var(--terracotta);
+  background: var(--active-bg);
+  color: var(--active-text);
+  border-color: var(--active-bg);
+}
+html.notte .modal-btn.confirm {
+  background: var(--active-bg);
+  color: var(--active-text);
+  border-color: var(--active-bg);
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -4588,7 +4600,7 @@ html.notte .banner-btn.confirm {
   transition: all 0.1s;
 }
 .modal-btn:hover { background: var(--cream-dark); color: var(--ink); }
-.modal-btn.confirm { background: var(--nav-bg); color: var(--cream); border-color: var(--nav-bg); }
+.modal-btn.confirm { background: var(--active-bg); color: var(--cream); border-color: var(--active-bg); }
 .modal-btn.confirm:hover { background: var(--ink-soft); }
 .modal-btn.destructive { border-color: rgba(184,98,64,0.35); color: var(--terracotta); }
 .modal-btn.destructive:hover { background: var(--terracotta); color: white; border-color: var(--terracotta); }
@@ -4687,7 +4699,7 @@ html.notte .banner-btn.confirm {
 }
 .tab:last-child { border-right: none; }
 .tab:hover:not(.active) { background: var(--cream-dark); color: var(--ink); }
-.tab.active { background: var(--nav-bg); color: var(--cream); }
+.tab.active { background: var(--active-bg); color: var(--active-text); }
 
 /* ── Data Table ──────────────────────────────────────── */
 .data-table {
@@ -4946,7 +4958,7 @@ html.notte .banner-btn.confirm {
   transition: all 0.1s;
 }
 .banner-btn:hover { background: var(--cream-dark); color: var(--ink); }
-.banner-btn.confirm { background: var(--nav-bg); color: var(--cream); border-color: var(--nav-bg); }
+.banner-btn.confirm { background: var(--active-bg); color: var(--cream); border-color: var(--active-bg); }
 
 /* ── Timeline / Activity Feed ────────────────────────── */
 .timeline { display: flex; flex-direction: column; width: 320px; }

@@ -284,8 +284,11 @@ export default function StorybookPage() {
               onClick={() => {
               const next = theme === 'levanzo' ? 'levanzo-notte' : 'levanzo'
               setTheme(next)
-              const t = THEMES[next]
               const root = document.documentElement
+              // Toggle .notte class so html.notte CSS selectors fire
+              root.classList.toggle('notte', next === 'levanzo-notte')
+              // Apply theme var overrides
+              const t = THEMES[next]
               for (const [k, v] of Object.entries(t)) root.style.setProperty(k, v)
             }}
             >
