@@ -51,8 +51,8 @@
   --serif: 'Cormorant Garamond', serif;
   --sans: 'DM Sans', sans-serif;
   /* Component tokens */
-  --pill-active-bg:    var(--nav-bg);
-  --pill-active-text:  var(--cream);
+  --pill-active-bg:    var(--active-bg);
+  --pill-active-text:  var(--active-text);
   --table-header-bg:   var(--cream-dark);
   --table-header-text: var(--ink-muted);
   --surface-raised:    var(--cream);
@@ -4116,7 +4116,7 @@ html.notte .modal-btn.confirm {
   letter-spacing: 0.03em;
   transition: all 0.1s;
 }
-.pill.active { background: var(--nav-bg); color: var(--cream); border-color: var(--nav-bg); }
+
 .pill:hover:not(.active) { background: var(--cream-dark); color: var(--ink); }
 
 /* ── Search Input ────────────────────────────────── */
