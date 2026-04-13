@@ -185,12 +185,7 @@ export default function StorybookPage() {
   const [viewMode, setViewMode] = useViewMode('sb-view', 'grid')
   const contentRef = useRef<HTMLDivElement>(null)
 
-  // Apply theme tokens
-  useEffect(() => {
-    const t = THEMES[theme]
-    const root = document.documentElement
-    for (const [k, v] of Object.entries(t)) root.style.setProperty(k, v)
-  }, [theme])
+
 
   // Scroll-spy
   useEffect(() => {
@@ -283,7 +278,13 @@ export default function StorybookPage() {
           <div className="sb-topbar-right">
             <button
               className="sb-theme-toggle"
-              onClick={() => setTheme(t => t === 'levanzo' ? 'levanzo-notte' : 'levanzo')}
+              onClick={() => {
+              const next = theme === 'levanzo' ? 'levanzo-notte' : 'levanzo'
+              setTheme(next)
+              const t = THEMES[next]
+              const root = document.documentElement
+              for (const [k, v] of Object.entries(t)) root.style.setProperty(k, v)
+            }}
             >
               {theme === 'levanzo' ? <Moon size={12} /> : <Sun size={12} />}
               {theme === 'levanzo' ? 'Notte' : 'Day'}
