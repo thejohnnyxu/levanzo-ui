@@ -4197,16 +4197,16 @@ html.notte .modal-btn.confirm {
   width: 100%;
   align-items: stretch;
 }
-.sh-spine { width: 22px; flex-shrink: 0; }
+.sh-spine { width: 6px; flex-shrink: 0; }
 .sh-body {
   flex: 1;
   border-left: 2px solid var(--border-strong);
-  padding: 9px 14px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.sh-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; }
+.sh-title { font-family: var(--serif); font-size: 1.35rem; font-weight: 500; font-style: italic; }
 .sh-count {
   font-family: var(--mono);
   font-size: 0.75rem;
