@@ -31,6 +31,7 @@ import CodeBlock from '@/components/CodeBlock'
 import Combobox from '@/components/Combobox'
 import FileUpload from '@/components/FileUpload'
 import DatePicker from '@/components/DatePicker'
+import CheckList from '@/components/CheckList'
 
 // ── Nav categories ────────────────────────────────────────────
 const CATEGORIES = [
@@ -56,7 +57,7 @@ const CATEGORIES = [
   },
   {
     label: 'Display',
-    items: ['badges', 'avatar', 'callout', 'code-block', 'accordion', 'divider', 'section-header'],
+    items: ['badges', 'avatar', 'callout', 'code-block', 'accordion', 'divider', 'section-header', 'checklist'],
   },
 ]
 
@@ -104,6 +105,7 @@ const ALL_SECTIONS: { id: string; label: string }[] = [
   { id: 'accordion',         label: 'Accordion' },
   { id: 'divider',           label: 'Divider' },
   { id: 'section-header',    label: 'Section Header' },
+  { id: 'checklist',         label: 'CheckList' },
 ]
 
 function slug(str: string) {
@@ -1090,6 +1092,23 @@ export default function StorybookPage() {
                   <Divider />
                   <Divider label="or" />
                   <Divider label="this week" />
+                </div>
+              </Section>
+            )}
+
+            {/* ── CheckList ── */}
+            {visibleIds.has('checklist') && (
+              <Section id="checklist" label="CheckList">
+                <div style={{ maxWidth: 480 }}>
+                  <CheckList
+                    defaultChecked={['ginger']}
+                    items={[
+                      { id: 'milk',   label: 'Whole milk',        meta: '½ gal', tag: 'Costco',    tagColor: 'sage' },
+                      { id: 'ginger', label: 'Ginger root',       meta: '2 oz',  tag: 'King Soop', tagColor: 'gold' },
+                      { id: 'tofu',   label: 'Dried tofu sheets', meta: '1 pkg', tag: 'H Mart',    tagColor: 'teal' },
+                      { id: 'pepper', label: 'Jalapeños',         meta: '3 ct' },
+                    ]}
+                  />
                 </div>
               </Section>
             )}

@@ -64,3 +64,5 @@ export { default as FileUpload, FileUploadZone, UploadedFileRow } from './FileUp
 export type { UploadedFile } from './FileUpload'
 
 export { default as DatePicker } from './DatePicker'
+export { default as CheckList } from './CheckList'
+export type { CheckListItem } from './CheckList'
