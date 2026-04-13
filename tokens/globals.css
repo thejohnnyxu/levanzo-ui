@@ -104,7 +104,7 @@ html {
 
 /* Nav */
 .sidenav {
-  width: 260px;
+  width: 320px;
   flex-shrink: 0;
   background: var(--nav-bg);
   border-right: 2px solid rgba(255,255,255,0.07);
@@ -3201,7 +3201,7 @@ body.theme-inspecting *:hover {
   overflow: hidden;
   width: 100%;
 }
-.alert-spine { width: 4px; flex-shrink: 0; margin: 8px 0 8px 8px; border-radius: 2px; }
+.alert-spine { width: 4px; flex-shrink: 0; margin: 6px 0 6px 6px; border-radius: 2px; }
 .alert-body  { flex: 1; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
 .alert-title { font-size: 0.9375rem; font-weight: 500; }
 .alert-msg   { font-size: 0.8125rem; color: var(--ink-soft); line-height: 1.5; }
@@ -3652,6 +3652,11 @@ html.notte .page-btn.active {
 }
 html.notte .breadcrumb-item-current {
   color: var(--terracotta-light);
+}
+html.notte .banner-btn.confirm {
+  background: var(--terracotta);
+  color: #F4EFE6;
+  border-color: var(--terracotta);
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -4186,10 +4191,11 @@ html.notte .breadcrumb-item-current {
 }
 .act-btn {
   flex: 1;
-  padding: 7px 0;
+  padding: 7px 8px;
   font-family: var(--mono);
   font-size: 0.8125rem;
   letter-spacing: 0.05em;
+  white-space: nowrap;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -4952,6 +4958,7 @@ html.notte .breadcrumb-item-current {
   flex-shrink: 0;
   width: 20px;
   padding-top: 3px;
+  align-self: stretch;
 }
 .tl-dot {
   width: 12px; height: 12px;
@@ -4963,7 +4970,7 @@ html.notte .breadcrumb-item-current {
 }
 .tl-dot.filled { background: var(--terracotta); border-color: var(--terracotta); }
 .tl-dot.sage { background: var(--sage); border-color: var(--sage); }
-.tl-line { width: 2px; flex: 1; background: var(--border-strong); margin: 2px 0; min-height: 18px; }
+.tl-line { width: 2px; flex: 1; background: var(--border-strong); margin: 2px 0; min-height: 24px; }
 .tl-item:last-child .tl-line { display: none; }
 .tl-content { flex: 1; padding-bottom: 18px; }
 .tl-action { font-size: 0.875rem; color: var(--ink-soft); line-height: 1.4; }
