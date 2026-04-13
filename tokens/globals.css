@@ -3635,6 +3635,25 @@ body.theme-inspecting *:hover {
 .dp-btn.confirm { background: var(--nav-bg); color: var(--cream); border-color: var(--nav-bg); }
 
 
+
+/* ── Notte mode: active states use terracotta instead of near-black nav-bg ── */
+html.notte .pill.active {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: #F4EFE6;
+}
+html.notte .tab.active {
+  background: var(--terracotta);
+  color: #F4EFE6;
+}
+html.notte .page-btn.active {
+  background: var(--terracotta);
+  color: #F4EFE6;
+}
+html.notte .breadcrumb-item-current {
+  color: var(--terracotta-light);
+}
+
 /* ══════════════════════════════════════════════════════════════
    Storybook shell
    ══════════════════════════════════════════════════════════════ */
