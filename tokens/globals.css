@@ -4925,16 +4925,17 @@ body.theme-inspecting *:hover {
 
 /* ── Timeline / Activity Feed ────────────────────────── */
 .timeline { display: flex; flex-direction: column; width: 320px; }
-.tl-item { display: flex; gap: 10px; position: relative; }
+.tl-item { display: flex; gap: 10px; position: relative; align-items: flex-start; }
 .tl-spine {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
   width: 20px;
+  padding-top: 3px;
 }
 .tl-dot {
-  width: 10px; height: 10px;
+  width: 12px; height: 12px;
   border: 2px solid var(--border-strong);
   border-radius: 50%;
   background: var(--cream);
