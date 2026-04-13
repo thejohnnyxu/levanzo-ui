@@ -14,8 +14,9 @@ function Bone({ w = '100%', h = 14, radius = 2, mb = 0 }: {
   )
 }
 
-// ── Recipe card skeleton — v2 spine style ────────────────────
-function RecipeCardSkeleton({ i = 0 }: { i?: number }) {
+// ── Card grid skeleton ────────────────────────────────────────
+// Matches the recipe-card-v2 spine layout. Use for any grid of spine-style cards.
+function SpineCardSkeleton({ i = 0 }: { i?: number }) {
   return (
     <div style={{
       display: 'flex', flexDirection: 'row',
@@ -46,16 +47,18 @@ function RecipeCardSkeleton({ i = 0 }: { i?: number }) {
   )
 }
 
-export function RecipesSkeleton() {
+export function CardGridSkeleton({ count = 6 }: { count?: number }) {
   return (
     <div className="recipes-grid">
-      {Array.from({ length: 6 }).map((_, i) => <RecipeCardSkeleton key={i} i={i} />)}
+      {Array.from({ length: count }).map((_, i) => <SpineCardSkeleton key={i} i={i} />)}
     </div>
   )
 }
 
-// ── Pantry item skeleton — brutalist v2 ──────────────────────
-function PantryItemSkeleton({ i = 0 }: { i?: number }) {
+// ── Item list skeleton ────────────────────────────────────────
+// Matches the pantry-item-card brutalist layout. Use for any card list with
+// a colored accent stripe and an action column.
+function AccentItemSkeleton({ i = 0 }: { i?: number }) {
   return (
     <div className="pantry-item-card" style={{ animationDelay: `${i * 30}ms` }}>
       {/* Accent stripe */}
@@ -74,16 +77,17 @@ function PantryItemSkeleton({ i = 0 }: { i?: number }) {
   )
 }
 
-export function PantrySkeleton() {
+export function ItemGridSkeleton({ count = 8 }: { count?: number }) {
   return (
     <div className="pantry-grid">
-      {Array.from({ length: 8 }).map((_, i) => <PantryItemSkeleton key={i} i={i} />)}
+      {Array.from({ length: count }).map((_, i) => <AccentItemSkeleton key={i} i={i} />)}
     </div>
   )
 }
 
-// ── Shopping list skeleton — brutalist v2 ────────────────────
-function ShoppingRowSkeleton({ i = 0 }: { i?: number }) {
+// ── Row list skeleton ─────────────────────────────────────────
+// Matches the shopping-item-row-v2 layout. Use for any checkbox-style row list.
+function CheckRowSkeleton({ i = 0 }: { i?: number }) {
   return (
     <div style={{
       display: 'flex',
@@ -107,16 +111,17 @@ function ShoppingRowSkeleton({ i = 0 }: { i?: number }) {
   )
 }
 
-export function ShoppingSkeleton() {
+export function RowListSkeleton({ count = 6 }: { count?: number }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-      {Array.from({ length: 6 }).map((_, i) => <ShoppingRowSkeleton key={i} i={i} />)}
+      {Array.from({ length: count }).map((_, i) => <CheckRowSkeleton key={i} i={i} />)}
     </div>
   )
 }
 
-// ── Task kanban skeleton ──────────────────────────────────────
-function TaskCardSkeleton({ i = 0 }: { i?: number }) {
+// ── Kanban skeleton ───────────────────────────────────────────
+// Use for any kanban/column-based board layout.
+function KanbanCardSkeleton({ i = 0 }: { i?: number }) {
   return (
     <div className="card" style={{ padding: '0.85rem', animationDelay: `${i * 35}ms` }}>
       <Bone h={13} w={`${55 + (i % 3) * 12}%`} mb={8} />
@@ -126,22 +131,22 @@ function TaskCardSkeleton({ i = 0 }: { i?: number }) {
   )
 }
 
-function TaskColumnSkeleton({ i = 0 }: { i?: number }) {
+function KanbanColumnSkeleton({ i = 0 }: { i?: number }) {
   const cardCount = 2 + (i % 2)
   return (
     <div style={{ minWidth: 260, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
       <div style={{ padding: '0.65rem 0.9rem', borderRadius: 4, background: 'var(--cream-dark)', border: '2px solid var(--border-strong)', marginBottom: 4 }}>
         <Bone h={13} w="50%" />
       </div>
-      {Array.from({ length: cardCount }).map((_, j) => <TaskCardSkeleton key={j} i={j} />)}
+      {Array.from({ length: cardCount }).map((_, j) => <KanbanCardSkeleton key={j} i={j} />)}
     </div>
   )
 }
 
-export function TasksSkeleton() {
+export function KanbanSkeleton({ columns = 3 }: { columns?: number }) {
   return (
     <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-      {Array.from({ length: 3 }).map((_, i) => <TaskColumnSkeleton key={i} i={i} />)}
+      {Array.from({ length: columns }).map((_, i) => <KanbanColumnSkeleton key={i} i={i} />)}
     </div>
   )
 }

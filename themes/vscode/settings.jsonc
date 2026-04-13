@@ -1,0 +1,171 @@
+{
+  // ── Security & trust ──────────────────────────────────────
+  "security.workspace.trust.untrustedFiles": "open",
+
+  // ── Chat / tools ──────────────────────────────────────────
+  "chat.tools.terminal.autoApprove": {
+    "npm run build": true
+  },
+
+  // ── Formatters ────────────────────────────────────────────
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ── Theme ─────────────────────────────────────────────────
+  "workbench.colorTheme": "Levanzo",
+
+  // ── Smooth scrolling (top-level — can't be theme-scoped) ──
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+  "terminal.integrated.smoothScrolling": true,
+
+  // ── Sidebar (top-level) ───────────────────────────────────
+  "workbench.tree.indent": 16,
+  "workbench.tree.renderIndentGuides": "onHover",
+
+  // ── Terminal font (top-level) ─────────────────────────────
+  "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.lineHeight": 1.4,
+
+  // ── Levanzo-scoped settings ───────────────────────────────
+  // These only apply when the Levanzo theme is active
+  "[Levanzo]": {
+    "editor.fontFamily": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 1.8,
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "400",
+
+    "editor.renderLineHighlight": "gutter",
+
+    "editor.rulers": [
+      { "column": 88,  "color": "#A85C3830" },
+      { "column": 120, "color": "#A85C3818" }
+    ],
+
+    "editor.bracketPairColorization.enabled": false,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.bracketPairsHorizontal": "active",
+    "editor.guides.indentation": true,
+    "editor.guides.highlightActiveIndentation": true,
+
+    "editor.minimap.enabled": true,
+    "editor.minimap.scale": 1,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.maxColumn": 80,
+
+    "editor.renderWhitespace": "boundary",
+    "editor.scrollbar.verticalScrollbarSize": 6,
+    "editor.scrollbar.horizontalScrollbarSize": 6,
+    "editor.overviewRulerBorder": false,
+
+    "editor.cursorStyle": "line",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+
+    "editor.wordWrap": "off",
+    "editor.padding.top": 12,
+    "editor.padding.bottom": 12
+  },
+
+  // ── Levanzo token color overrides ─────────────────────────
+  // Edit these hex values to customize syntax colors without
+  // touching the theme file. Changes apply on save — no reload needed.
+  "editor.tokenColorCustomizations": {
+    "[Levanzo]": {
+      "textMateRules": [
+        // Plain text & variables
+        { "scope": "source",                                "settings": { "foreground": "#1E1410" } },
+        { "scope": "variable",                             "settings": { "foreground": "#1E1410" } },
+        { "scope": "variable.parameter",                   "settings": { "foreground": "#5C3E28", "fontStyle": "italic" } },
+
+        // Punctuation
+        { "scope": "punctuation",                          "settings": { "foreground": "#6A5848" } },
+
+        // Comments
+        { "scope": "comment",                              "settings": { "foreground": "#A89A82", "fontStyle": "italic" } },
+
+        // Strings
+        { "scope": "string",                               "settings": { "foreground": "#245C40" } },
+        { "scope": "constant.character.escape",            "settings": { "foreground": "#7A5010", "fontStyle": "bold" } },
+
+        // Numbers & constants
+        { "scope": "constant.numeric",                     "settings": { "foreground": "#7A5010" } },
+        { "scope": "constant.language",                    "settings": { "foreground": "#245C40", "fontStyle": "italic" } },
+
+        // Keywords & storage
+        { "scope": "keyword",                              "settings": { "foreground": "#7A2010", "fontStyle": "bold" } },
+        { "scope": "keyword.operator",                     "settings": { "foreground": "#6A5848", "fontStyle": "" } },
+        { "scope": "storage",                              "settings": { "foreground": "#7A2010", "fontStyle": "bold" } },
+        { "scope": "storage.modifier",                     "settings": { "foreground": "#7A2010", "fontStyle": "bold italic" } },
+
+        // Functions
+        { "scope": "entity.name.function",                 "settings": { "foreground": "#1E1410", "fontStyle": "bold" } },
+        { "scope": "meta.function-call entity.name.function", "settings": { "foreground": "#8C4A20" } },
+        { "scope": "support.function",                     "settings": { "foreground": "#8C4A20" } },
+
+        // Types & classes
+        { "scope": "entity.name.class",                    "settings": { "foreground": "#6B4A08" } },
+        { "scope": "entity.name.type",                     "settings": { "foreground": "#6B4A08" } },
+        { "scope": "support.type",                         "settings": { "foreground": "#6B4A08" } },
+        { "scope": "support.class",                        "settings": { "foreground": "#6B4A08" } },
+
+        // HTML / JSX tags
+        { "scope": "entity.name.tag",                      "settings": { "foreground": "#7A2010", "fontStyle": "bold" } },
+        { "scope": "entity.other.attribute-name",          "settings": { "foreground": "#7A5010" } },
+
+        // CSS custom properties
+        { "scope": "variable.css",                         "settings": { "foreground": "#7A2010" } },
+        { "scope": "support.type.custom-property",         "settings": { "foreground": "#7A2010" } },
+
+        // JSON keys
+        { "scope": "support.type.property-name.json",      "settings": { "foreground": "#7A2010" } },
+
+        // YAML keys
+        { "scope": "entity.name.tag.yaml",                 "settings": { "foreground": "#7A2010" } }
+      ]
+    }
+  },
+
+  // ── Levanzo semantic token overrides ──────────────────────
+  // Top-level with theme name inside — this is the correct structure.
+  // Fixes Pylance/language server overrides (blue methods, etc.)
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {},
+    "[Levanzo]": {
+      "namespace":               "#1E1410",
+      "class":                   "#6B4A08",
+      "enum":                    "#7A5A10",
+      "interface":               "#7A5A10",
+      "struct":                  "#6B4A08",
+      "type":                    "#6B4A08",
+      "typeParameter":           "#6B4A08",
+      "function":                "#8C4A20",
+      "method":                  "#8C4A20",
+      "macro":                   "#8C4A20",
+      "decorator":               { "foreground": "#7A5010", "italic": true },
+      "variable":                "#1E1410",
+      "variable.readonly":       "#7A5010",
+      "parameter":               { "foreground": "#5C3E28", "italic": true },
+      "property":                "#1E1410",
+      "property.readonly":       "#7A5010",
+      "enumMember":              "#7A5010",
+      "keyword":                 { "foreground": "#7A2010", "bold": true },
+      "string":                  "#245C40",
+      "number":                  "#7A5010",
+      "operator":                "#6A5848",
+      "comment":                 { "foreground": "#A89A82", "italic": true },
+      "selfKeyword":             { "foreground": "#245C40", "italic": true },
+      "builtinType":             "#6B4A08",
+      "*.defaultLibrary":        "#6B4A08"
+    }
+  }
+}

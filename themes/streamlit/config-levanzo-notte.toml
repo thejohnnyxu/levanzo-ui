@@ -1,0 +1,10 @@
+# Levanzo Notte — Streamlit Theme (Dark)
+# Drop this file into your project at .streamlit/config.toml
+
+[theme]
+base = "dark"
+backgroundColor          = "#1E1A14"   # --paper
+secondaryBackgroundColor = "#1A1710"   # --cream
+textColor                = "#CEBEAA"   # --ink-soft
+primaryColor             = "#C07048"   # --terracotta
+font = "sans serif"

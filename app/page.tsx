@@ -3,11 +3,11 @@ import { useState } from 'react'
 import { ToastContainer, toast } from '@/components/Toast'
 import { DataTable, ViewToggle, useViewMode, ColDef } from '@/components/DataTable'
 import InlineEdit from '@/components/InlineEdit'
-import { RecipesSkeleton, PantrySkeleton, ListSkeleton } from '@/components/Skeletons'
+import { CardGridSkeleton, ItemGridSkeleton, RowListSkeleton, KanbanSkeleton, ListSkeleton } from '@/components/Skeletons'
 import SwipeRow from '@/components/SwipeRow'
 import MarkdownRenderer from '@/components/MarkdownRenderer'
-import { Sun, Moon, Palette } from 'lucide-react'
-import { THEMES, applySettings, loadSettings, saveSettings, DEFAULT_SETTINGS } from '@/lib/settings'
+import { Sun, Moon } from 'lucide-react'
+import { THEMES } from '@/lib/settings'
 
 // ── Theme switcher ────────────────────────────────────────────
 function applyTheme(name: 'levanzo' | 'levanzo-notte') {
@@ -30,45 +30,45 @@ function Section({ title, sub, children }: { title: string; sub?: string; childr
 }
 
 // ── Sample table data ─────────────────────────────────────────
-type Item = { id: string; name: string; category: string; qty: number; status: string }
-const TABLE_DATA: Item[] = [
-  { id: '1', name: 'Olive Oil',     category: 'Pantry',  qty: 2,  status: 'In stock'  },
-  { id: '2', name: 'Cherry Tomato', category: 'Produce', qty: 1,  status: 'Low'       },
-  { id: '3', name: 'Parmigiano',    category: 'Dairy',   qty: 3,  status: 'In stock'  },
-  { id: '4', name: 'Sourdough',     category: 'Pantry',  qty: 0,  status: 'Out'       },
-  { id: '5', name: 'Eggs',          category: 'Dairy',   qty: 12, status: 'In stock'  },
+type Row = { id: string; name: string; category: string; count: number; status: string }
+const TABLE_DATA: Row[] = [
+  { id: '1', name: 'Component A', category: 'UI',      count: 12, status: 'Active'   },
+  { id: '2', name: 'Component B', category: 'Layout',  count: 4,  status: 'Draft'    },
+  { id: '3', name: 'Component C', category: 'UI',      count: 7,  status: 'Active'   },
+  { id: '4', name: 'Component D', category: 'Utility', count: 0,  status: 'Archived' },
+  { id: '5', name: 'Component E', category: 'Layout',  count: 19, status: 'Active'   },
 ]
-const TABLE_COLS: ColDef<Item>[] = [
+const TABLE_COLS: ColDef<Row>[] = [
   { key: 'name',     label: 'Name',     sortValue: r => r.name },
   { key: 'category', label: 'Category', sortValue: r => r.category },
-  { key: 'qty',      label: 'Qty',      sortValue: r => r.qty, width: 80 },
+  { key: 'count',    label: 'Count',    sortValue: r => r.count, width: 80 },
   { key: 'status',   label: 'Status',   sortValue: r => r.status,
     render: r => (
-      <span className={`badge ${r.status === 'In stock' ? 'badge-sage' : r.status === 'Low' ? 'badge-gold' : 'badge-terracotta'}`}>
+      <span className={`badge ${r.status === 'Active' ? 'badge-sage' : r.status === 'Draft' ? 'badge-gold' : 'badge-ink'}`}>
         {r.status}
       </span>
     )
   },
 ]
 
-const SAMPLE_MD = `## Recipe Notes
+const SAMPLE_MD = `## Section Heading
 
-Start by **blooming the spices** in olive oil — about 45 seconds on medium heat.
+Start with **bold emphasis** to anchor the reader — use it sparingly.
 
-Ingredients list:
-- [ ] Cumin seeds
-- [x] Coriander (already ground)
-- [ ] Fresh ginger
+A plain list:
+- [ ] Unchecked item
+- [x] Completed item
+- [ ] Another item
 
-> "The smell alone will tell you when it's ready."
+> A blockquote for callouts or pull quotes.
 
 ---
 
-Rest the dough for *at least* 2 hours before shaping.`
+Use *italics* for nuance, not decoration. \`inline code\` for technical terms.`
 
 export default function Home() {
   const [theme, setTheme] = useState<'levanzo' | 'levanzo-notte'>('levanzo')
-  const [inlineVal, setInlineVal] = useState('Click me to rename')
+  const [inlineVal, setInlineVal] = useState('Click to edit this label')
   const [showSkeleton, setShowSkeleton] = useState<string | null>(null)
   const [view, setView] = useViewMode('demo-view', 'grid')
 
@@ -136,19 +136,19 @@ export default function Home() {
         <Section title="Color Tokens" sub="All colors are CSS custom properties. Switch themes with applyTheme().">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: '0.65rem' }}>
             {[
-              ['--cream', 'cream'],
-              ['--cream-dark', 'cream-dark'],
-              ['--parchment', 'parchment'],
-              ['--ink', 'ink'],
-              ['--ink-soft', 'ink-soft'],
-              ['--ink-muted', 'ink-muted'],
-              ['--terracotta', 'terracotta'],
-              ['--terracotta-light', 'terracotta-light'],
-              ['--sage', 'sage'],
-              ['--sage-light', 'sage-light'],
-              ['--gold', 'gold'],
-              ['--gold-light', 'gold-light'],
-            ].map(([varName, label]) => (
+              '--cream',
+              '--cream-dark',
+              '--parchment',
+              '--ink',
+              '--ink-soft',
+              '--ink-muted',
+              '--terracotta',
+              '--terracotta-light',
+              '--sage',
+              '--sage-light',
+              '--gold',
+              '--gold-light',
+            ].map(varName => (
               <div key={varName} style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                 <div style={{
                   height: 48,
@@ -170,7 +170,7 @@ export default function Home() {
             <div>
               <span className="section-label" style={{ display: 'block', marginBottom: '0.35rem' }}>Display — Cormorant Garamond</span>
               <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '2.2rem', fontWeight: 400, color: 'var(--ink)' }}>
-                Mise en place
+                Form follows feeling
               </span>
             </div>
             <div>
@@ -211,15 +211,15 @@ export default function Home() {
         {/* ── Badges & Tags ───────────────────────────────── */}
         <Section title="Badges & Tags">
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', alignItems: 'center' }}>
-            <span className="badge badge-sage">In stock</span>
+            <span className="badge badge-sage">Active</span>
             <span className="badge badge-terracotta">Overdue</span>
-            <span className="badge badge-gold">Due soon</span>
+            <span className="badge badge-gold">Pending</span>
             <span className="badge badge-ink">Archived</span>
-            <span className="tag">fermenting</span>
-            <span className="tag">sourdough</span>
+            <span className="tag">tag-one</span>
+            <span className="tag">tag-two</span>
             <span className="filter-tab">All</span>
-            <span className="filter-tab active">Produce</span>
-            <span className="filter-tab">Dairy</span>
+            <span className="filter-tab active">Category A</span>
+            <span className="filter-tab">Category B</span>
           </div>
         </Section>
 
@@ -227,8 +227,8 @@ export default function Home() {
         <Section title="Alerts">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
             <div className="alert-error">Something went wrong — please try again.</div>
-            <div className="alert-warning">Your pantry has 3 items running low.</div>
-            <div className="alert-info">Meal plan synced successfully.</div>
+            <div className="alert-warning">3 items require your attention.</div>
+            <div className="alert-info">Changes saved successfully.</div>
           </div>
         </Section>
 
@@ -236,19 +236,19 @@ export default function Home() {
         <Section title="Inputs">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', maxWidth: 560 }}>
             <div className="field">
-              <label className="label">Ingredient name</label>
-              <input className="input" type="text" placeholder="e.g. Cherry tomatoes" />
+              <label className="label">Label</label>
+              <input className="input" type="text" placeholder="Placeholder text" />
             </div>
             <div className="field">
-              <label className="label">Category</label>
+              <label className="label">Select</label>
               <select className="input">
-                <option>Produce</option>
-                <option>Dairy</option>
-                <option>Pantry</option>
+                <option>Option A</option>
+                <option>Option B</option>
+                <option>Option C</option>
               </select>
             </div>
             <div className="field" style={{ gridColumn: '1 / -1' }}>
-              <label className="label">Notes</label>
+              <label className="label">Textarea</label>
               <textarea className="input" placeholder="Optional notes…" />
             </div>
           </div>
@@ -257,37 +257,37 @@ export default function Home() {
         {/* ── Cards ───────────────────────────────────────── */}
         <Section title="Cards">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.75rem' }}>
-            {['Ribollita', 'Pasta e Fagioli', 'Focaccia'].map((name, i) => (
+            {['Card Title One', 'Card Title Two', 'Card Title Three'].map((name, i) => (
               <div key={name} className="card" style={{ padding: '1.25rem', cursor: 'pointer' }}>
                 <div className="recipe-card-title" style={{ marginBottom: '0.4rem' }}>{name}</div>
                 <p className="text-sm text-muted" style={{ marginBottom: '0.75rem', lineHeight: 1.5 }}>
-                  A classic rustic Italian dish with seasonal vegetables and legumes.
+                  A short description that gives context about the content of this card.
                 </p>
                 <div className="divider" style={{ margin: '0 0 0.75rem' }} />
                 <div style={{ display: 'flex', gap: '1rem' }}>
-                  <span className="badge badge-sage">dinner</span>
-                  <span className="text-xs text-muted" style={{ marginLeft: 'auto' }}>{30 + i * 15} min</span>
+                  <span className="badge badge-sage">Active</span>
+                  <span className="text-xs text-muted" style={{ marginLeft: 'auto' }}>{i + 1} of 3</span>
                 </div>
               </div>
             ))}
           </div>
         </Section>
 
-        {/* ── Modals ──────────────────────────────────────── */}
+        {/* ── Modal ───────────────────────────────────────── */}
         <Section title="Modal">
           <div style={{ border: '2px solid var(--border-strong)', borderRadius: 6, overflow: 'hidden', maxWidth: 520 }}>
             <div className="modal-header">
-              <span className="modal-title">Add ingredient</span>
+              <span className="modal-title">Dialog Title</span>
               <button className="btn btn-ghost btn-sm" style={{ padding: '0 0.4rem' }}>✕</button>
             </div>
             <div className="modal-body">
               <div className="field">
-                <label className="label">Name</label>
-                <input className="input" defaultValue="Parmigiano Reggiano" />
+                <label className="label">Field One</label>
+                <input className="input" defaultValue="Default value" />
               </div>
               <div className="field">
-                <label className="label">Quantity</label>
-                <input className="input" type="number" defaultValue="200" />
+                <label className="label">Field Two</label>
+                <input className="input" type="number" defaultValue="42" />
               </div>
             </div>
             <div className="modal-footer">
@@ -300,16 +300,16 @@ export default function Home() {
         {/* ── Toast ───────────────────────────────────────── */}
         <Section title="Toast" sub="Global toast notifications. Call toast.success(), toast.error(), toast.info(), or toast.undo().">
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-            <button className="btn btn-secondary btn-sm" onClick={() => toast.success('Meal plan saved!')}>
+            <button className="btn btn-secondary btn-sm" onClick={() => toast.success('Changes saved.')}>
               Success toast
             </button>
-            <button className="btn btn-secondary btn-sm" onClick={() => toast.error('Failed to sync.')}>
+            <button className="btn btn-secondary btn-sm" onClick={() => toast.error('Something went wrong.')}>
               Error toast
             </button>
-            <button className="btn btn-secondary btn-sm" onClick={() => toast.info('3 items are low.')}>
+            <button className="btn btn-secondary btn-sm" onClick={() => toast.info('3 items updated.')}>
               Info toast
             </button>
-            <button className="btn btn-secondary btn-sm" onClick={() => toast.undo('Item deleted.', () => toast.info('Undo!'))}>
+            <button className="btn btn-secondary btn-sm" onClick={() => toast.undo('Item deleted.', () => toast.info('Restored.'))}>
               Undo toast
             </button>
           </div>
@@ -318,7 +318,7 @@ export default function Home() {
         {/* ── InlineEdit ──────────────────────────────────── */}
         <Section title="InlineEdit" sub="Click the text below to edit inline. Save with Enter or blur, cancel with Escape.">
           <div className="card card-tight" style={{ padding: '1rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span className="text-sm text-muted">Name:</span>
+            <span className="text-sm text-muted">Label:</span>
             <InlineEdit
               value={inlineVal}
               onSave={setInlineVal}
@@ -332,7 +332,7 @@ export default function Home() {
           <DataTable
             columns={TABLE_COLS}
             data={TABLE_DATA}
-            storageKey="demo-pantry"
+            storageKey="demo-table"
             emptyMessage="No items found"
           />
         </Section>
@@ -346,9 +346,9 @@ export default function Home() {
         </Section>
 
         {/* ── Skeletons ───────────────────────────────────── */}
-        <Section title="Skeletons" sub="Loading states for recipes, pantry, shopping, tasks, and generic lists.">
+        <Section title="Skeletons" sub="Loading states for card grids, item lists, row lists, kanban boards, and generic lists.">
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
-            {(['recipes', 'pantry', 'list'] as const).map(s => (
+            {(['card-grid', 'item-grid', 'row-list', 'kanban', 'list'] as const).map(s => (
               <button
                 key={s}
                 className={`btn btn-sm ${showSkeleton === s ? 'btn-primary' : 'btn-secondary'}`}
@@ -358,15 +358,17 @@ export default function Home() {
               </button>
             ))}
           </div>
-          {showSkeleton === 'recipes' && <RecipesSkeleton />}
-          {showSkeleton === 'pantry' && <PantrySkeleton />}
-          {showSkeleton === 'list' && <ListSkeleton rows={4} />}
+          {showSkeleton === 'card-grid'  && <CardGridSkeleton />}
+          {showSkeleton === 'item-grid'  && <ItemGridSkeleton />}
+          {showSkeleton === 'row-list'   && <RowListSkeleton />}
+          {showSkeleton === 'kanban'     && <KanbanSkeleton />}
+          {showSkeleton === 'list'       && <ListSkeleton rows={4} />}
         </Section>
 
         {/* ── SwipeRow ────────────────────────────────────── */}
         <Section title="SwipeRow" sub="Touch-native swipe-to-delete and swipe-to-edit. Try on mobile.">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', maxWidth: 420 }}>
-            {['Cherry tomatoes', 'Parmigiano', 'Olive oil'].map((item, i) => (
+            {['Row item one', 'Row item two', 'Row item three'].map((item, i) => (
               <SwipeRow
                 key={item}
                 onDelete={() => toast.undo(`Deleted "${item}"`, () => {})}
@@ -374,7 +376,7 @@ export default function Home() {
               >
                 <div className="card card-tight" style={{ padding: '0.75rem 1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span className="text-md">{item}</span>
-                  <span className="text-sm text-muted">{['Produce', 'Dairy', 'Pantry'][i]}</span>
+                  <span className="text-sm text-muted">{['Category A', 'Category B', 'Category C'][i]}</span>
                 </div>
               </SwipeRow>
             ))}
@@ -382,7 +384,7 @@ export default function Home() {
         </Section>
 
         {/* ── MarkdownRenderer ────────────────────────────── */}
-        <Section title="MarkdownRenderer" sub="Renders markdown (or Tiptap JSON via marked) with full tiptap-renderer styles.">
+        <Section title="MarkdownRenderer" sub="Renders markdown with full tiptap-renderer styles.">
           <div className="card card-tight" style={{ padding: '1.25rem' }}>
             <MarkdownRenderer markdown={SAMPLE_MD} />
           </div>
@@ -392,9 +394,9 @@ export default function Home() {
         <Section title="Utility: stat-row">
           <div className="card card-tight" style={{ padding: '1rem', maxWidth: 320 }}>
             {[
-              ['Total recipes', '48'],
-              ['Cooked this week', '5'],
-              ['Pantry items', '127'],
+              ['Total items',    '48'],
+              ['Updated today',  '5'],
+              ['Pending review', '12'],
             ].map(([label, val]) => (
               <div key={label} className="stat-row">
                 <span className="stat-label">{label}</span>
