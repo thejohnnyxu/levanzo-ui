@@ -30,7 +30,7 @@ import CommandPalette from '@/components/CommandPalette'
 import CodeBlock from '@/components/CodeBlock'
 import Combobox from '@/components/Combobox'
 import FileUpload from '@/components/FileUpload'
-import DatePicker from '@/components/DatePicker'
+import DatePicker, { TimePicker, DateTimePicker } from '@/components/DatePicker'
 import CheckList from '@/components/CheckList'
 
 // ── Nav categories ────────────────────────────────────────────
@@ -78,7 +78,7 @@ const ALL_SECTIONS: { id: string; label: string }[] = [
   { id: 'tag-input',         label: 'Tag Input' },
   { id: 'stepper',           label: 'Stepper / Quantity Input' },
   { id: 'file-upload',       label: 'File Upload' },
-  { id: 'date-picker',       label: 'Date Picker' },
+  { id: 'date-picker',       label: 'Date · Time · DateTime' },
   { id: 'filter-pills',      label: 'Filter Pills' },
   { id: 'tab-bar',           label: 'Tab Bar' },
   { id: 'breadcrumbs',       label: 'Breadcrumbs' },
@@ -182,6 +182,8 @@ export default function StorybookPage() {
   const [checkSelected, setCheckSelected] = useState(['auto-shopping', 'pantry-mode'])
   const [files, setFiles] = useState<any[]>([])
   const [pickedDate, setPickedDate] = useState<Date | null>(null)
+  const [pickedTime, setPickedTime] = useState<Date | null>(null)
+  const [pickedDatetime, setPickedDatetime] = useState<Date | null>(null)
   const [inlineVal, setInlineVal] = useState('Click to edit this label')
   const [showSkeleton, setShowSkeleton] = useState<string | null>(null)
   const [viewMode, setViewMode] = useViewMode('sb-view', 'grid')
@@ -661,8 +663,12 @@ export default function StorybookPage() {
 
             {/* ── Date picker ── */}
             {visibleIds.has('date-picker') && (
-              <Section id="date-picker" label="Date Picker">
-                <DatePicker value={pickedDate} onChange={setPickedDate} label="Meal date" />
+              <Section id="date-picker" label="Date · Time · DateTime Pickers">
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'flex-start' }}>
+                  <DatePicker     value={pickedDate}     onChange={setPickedDate}     label="Date" />
+                  <TimePicker     value={pickedTime}     onChange={setPickedTime}     label="Time" />
+                  <DateTimePicker value={pickedDatetime} onChange={setPickedDatetime} label="Date & Time" />
+                </div>
               </Section>
             )}
 
