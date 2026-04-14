@@ -3709,47 +3709,49 @@ html.notte .modal-btn.confirm {
 
 /* Top bar */
 .sb-topbar {
-  height: 52px;
+  height: 80px;
   flex-shrink: 0;
   background: var(--nav-bg);
   border-bottom: 2px solid rgba(255,255,255,0.07);
   display: flex;
   align-items: center;
-  padding: 0 20px;
-  gap: 16px;
+  padding: 0 24px;
+  gap: 18px;
   z-index: 100;
 }
 .sb-brand {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 13px;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.4rem;
   color: var(--cream);
   letter-spacing: 0.01em;
   white-space: nowrap;
   flex-shrink: 0;
 }
 .sb-brand-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 5px;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
   flex-shrink: 0;
   display: block;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.35);
 }
 .sb-brand-dot { color: var(--terracotta-light); }
 
 .sb-search {
   flex: 1;
-  max-width: 340px;
+  max-width: 380px;
   display: flex;
   align-items: center;
   gap: 8px;
   border: 1.5px solid rgba(255,255,255,0.1);
-  border-radius: 3px;
+  border-radius: 4px;
   background: rgba(255,255,255,0.05);
-  padding: 0 8px;
+  padding: 0 10px;
+  height: 38px;
 }
 .sb-search-input {
   flex: 1;
@@ -3798,7 +3800,7 @@ html.notte .modal-btn.confirm {
   background: none;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 2px;
-  padding: 4px 10px;
+  padding: 6px 12px;
   cursor: pointer;
   letter-spacing: 0.05em;
   transition: color 0.1s, border-color 0.1s;
@@ -3810,7 +3812,7 @@ html.notte .modal-btn.confirm {
   color: rgba(255,255,255,0.3);
   text-decoration: none;
   letter-spacing: 0.04em;
-  padding: 4px 8px;
+  padding: 6px 10px;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 2px;
   transition: color 0.1s, border-color 0.1s;

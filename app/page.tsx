@@ -259,7 +259,7 @@ export default function StorybookPage() {
         <header className="sb-topbar">
           <div className="sb-brand">
             <img src="/icon.svg" alt="Levanzo" className="sb-brand-icon" />
-            levanzo<span className="sb-brand-dot">.ui</span>
+            levanzo<span className="sb-brand-dot">-ui</span>
           </div>
 
           <div className="sb-search">
