@@ -39,7 +39,63 @@
   --sage-light: #88A080;
   --gold: #A87830;
   --gold-light: #C89848;
-  --teal: #3A7A80;
+  /* ── Accent color series (5 stops: deep / base / mid / light / faint) ── */
+  /* These are day (Levanzo) values; notte overrides set via applySettings()  */
+
+  /* Terracotta */
+  --terracotta-deep:  #7A3520;
+  --terracotta-mid:   #CC8060;
+  --terracotta-light: #E0A888;
+  --terracotta-faint: #F2D4C4;
+
+  /* Sage */
+  --sage-deep:  #2C4828;
+  --sage-mid:   #88A080;
+  --sage-light: #AABCA4;
+  --sage-faint: #D0DCC8;
+
+  /* Gold */
+  --gold-deep:  #6A4A10;
+  --gold-mid:   #C89848;
+  --gold-light: #E0BC78;
+  --gold-faint: #F2DEB0;
+
+  /* Rust — error / destructive */
+  --rust:       #A83828;
+  --rust-deep:  #6A1C10;
+  --rust-mid:   #C85848;
+  --rust-light: #DE8878;
+  --rust-faint: #F2C4B8;
+
+  /* Teal — informational */
+  --teal:       #3A7A80;
+  --teal-deep:  #1C4A50;
+  --teal-mid:   #5A9EA4;
+  --teal-light: #8CC0C4;
+  --teal-faint: #C0DDE0;
+
+  /* Plum — special / premium */
+  --plum:       #705880;
+  --plum-deep:  #3C2848;
+  --plum-mid:   #9078A0;
+  --plum-light: #B4A0C4;
+  --plum-faint: #D8CDE8;
+
+  /* Ochre — harvest / nutrition */
+  --ochre:       #946020;
+  --ochre-deep:  #5A3808;
+  --ochre-mid:   #B88040;
+  --ochre-light: #D4A870;
+  --ochre-faint: #EDD0A8;
+
+  /* Slate — neutral data / metadata */
+  --slate:       #486078;
+  --slate-deep:  #283040;
+  --slate-mid:   #6882A0;
+  --slate-light: #98B0C8;
+  --slate-faint: #C8D8E8;
+
+  /* Legacy single tokens (kept for back-compat) */
   --purple: #7A6E9A;
   --border: rgba(44,36,24,0.12);
   --border-strong: rgba(44,36,24,0.22);
