@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { Sun, Moon, Search, X } from 'lucide-react'
+import { Sun, Moon, Search, X, Palette } from 'lucide-react'
 import { THEMES } from '@/lib/settings'
 
 // ── Components ────────────────────────────────────────────────
@@ -297,6 +297,9 @@ export default function StorybookPage() {
               {theme === 'levanzo' ? <Moon size={12} /> : <Sun size={12} />}
               {theme === 'levanzo' ? 'Notte' : 'Day'}
             </button>
+            <a className="sb-topbar-link" href="/palette" style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+              <Palette size={11} /> Palette
+            </a>
             <a className="sb-topbar-link" href="https://github.com/thejohnnyxu/levanzo-ui" target="_blank" rel="noreferrer">
               GitHub
             </a>
@@ -341,6 +344,12 @@ export default function StorybookPage() {
               )
             })}
             <div className="sb-sidebar-footer">
+              <a href="/palette" style={{ display: 'flex', alignItems: 'center', gap: 5, color: 'rgba(255,255,255,0.45)', textDecoration: 'none', fontSize: '0.75rem', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.04em', marginBottom: 8, transition: 'color 0.1s' }}
+                onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
+                onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
+              >
+                <Palette size={11} style={{ flexShrink: 0 }} /> Color palette
+              </a>
               levanzo-ui · MIT<br />
               <span style={{ opacity: 0.5 }}>github.com/thejohnnyxu/levanzo-ui</span>
             </div>
